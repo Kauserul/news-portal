@@ -43,6 +43,10 @@ const dispalyNews = datas => {
                     <i class="fas fa-regular fa-star"></i>
                     <i class="fas fa-regular fa-star"></i>
                 </div>
+
+                <div onclick="moreDetails()">
+                    <button class="btn btn-primary">See More</button>
+                </div>
                 
               </div>
 
@@ -53,6 +57,10 @@ const dispalyNews = datas => {
         `;
         mainCard.appendChild(div)
     })
+};
+
+const moreDetails = id =>{
+    
 }
 
 loadNews()
