@@ -21,7 +21,31 @@ const dispalyNews = datas => {
             <div class="card-body">
               <h5 class="card-title">${data.title}</h5>
               <p class="card-text">${data.details}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <img class="author-pic rounded me-2" src ="${data.author.img}">
+                    <div>
+                        <p class="mb-0 small">${data.author.name}</p>
+                        <p class="mt-0 small">${data.author.published_date}</p>
+                    </div>
+                </div>
+
+                <div class="pb-0">
+                    <span><i class="fas fa-solid fa-eye me-1"></i>${data.total_view}</span>
+                </div>
+
+                <div>
+                    <i class="fas fa-regular fa-star"></i>
+                    <i class="fas fa-regular fa-star"></i>
+                    <i class="fas fa-regular fa-star"></i>
+                    <i class="fas fa-regular fa-star"></i>
+                    <i class="fas fa-regular fa-star"></i>
+                </div>
+                
+              </div>
+
             </div>
           </div>
         </div>

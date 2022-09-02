@@ -2,4 +2,14 @@
 .cetagory{
     text-decoration: none;
     color: black;
+    
+}
+.author-pic{
+    height: 40px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+.small{
+    font-size: 15৩px;
 }
