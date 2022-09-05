@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
 
-.cetagory{
-    text-decoration: none;
-    color: black;
-    
-}
-.author-pic{
-    height: 40px;
-    width: 30px;
-    margin-left: 5px;
-}
 
-.small{
-    font-size: 15px;
+.home-blog a{
+    text-decoration: none;
 }
