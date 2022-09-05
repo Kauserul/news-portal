@@ -62,7 +62,7 @@ const displayCetagoryDetails = details =>{
                         <div class="col-lg-9 p-4">
 
                               <h4 class="card-title">${detail.title}</h4>
-                                 <p class="card-text my-3">${detail.details.slice(0, 450) + ' ' + 'more.....'}</p>
+                                 <p class="card-text my-3">${detail.details.slice(0, 4450) + ' ' + 'more.....'}</p>
 
                             
                                  <div class="row d-flex align-items-center justify-content-center ">
