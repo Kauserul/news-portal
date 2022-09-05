@@ -1,3 +1,27 @@
+
+const menuBar = async() =>{
+    const url = `https://openapi.programming-hero.com/api/news/categories`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayMenuBar(data.data.news_category)
+}
+
+const displayMenuBar = lists=>{
+    // console.log(lists)
+    const menuBar = document.getElementById('menu-bar');
+    lists.forEach(list =>{
+        // console.log(list)
+        const menuDiv = document.createElement('div');
+        menuDiv.innerHTML = `
+        <div>
+            <a href="#" class="me-5 cetagory">${list.category_name}</a>
+        </div>
+        `;
+        menuBar.appendChild(menuDiv)
+    })
+};
+
+
 const loadNews = async () => {
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     const res = await fetch(url);
@@ -6,6 +30,7 @@ const loadNews = async () => {
 };
 
 const dispalyNews = datas => {
+    // console.log(datas)
     const mainCard = document.getElementById('main-card');
     datas.forEach(data => {
         console.log(data)
@@ -15,12 +40,12 @@ const dispalyNews = datas => {
         <div class="card mb-3" style="max-width: 1040px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="${data.image_url}" class="img-fluid rounded-start" alt="...">
+            <img style="height: 250px" src="${data.image_url}" class="img-fluid rounded-start p-2" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${data.title}</h5>
-              <p class="card-text">${data.details}</p>
+              <p class="card-text">${(data.details).slice(0, 300)}</p>
               
 
               <div class="d-flex justify-content-between align-items-center">
@@ -45,7 +70,7 @@ const dispalyNews = datas => {
                 </div>
 
                 <div onclick="moreDetails()">
-                    <button class="btn btn-primary">See More</button>
+                    <button onclick="displayMoreDetails('${data._id}')" class="btn btn-primary data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
                 </div>
                 
               </div>
@@ -56,11 +81,23 @@ const dispalyNews = datas => {
       </div>
         `;
         mainCard.appendChild(div)
-    })
+        
+    });
+    
 };
 
-const moreDetails = id =>{
-    
+const displayMoreDetails = news_id =>{
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayNewsDetails(data.data[0]._id))
 }
 
+const displayNewsDetails = singleNewsDetails =>{
+      console.log(singleNewsDetails)
+      const newsTitle = document.getElementById('exampleModalLabel');
+      newsTitle.innerText = singleNewsDetails.title
+}
+
+menuBar();
 loadNews()
