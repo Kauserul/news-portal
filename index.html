@@ -17,9 +17,9 @@
     <header class="container">
       <nav id="nav-01" class="navbar bg-light">
         <div class="container">
-            <a class="navbar-brand"><span class="logo-style ">Today </span>news</a>
+            <a class="navbar-brand"><span class="logo-style "> <span class="text-danger">Today </span></span>news</a>
             <ul class="home-blog mt-2">
-                <a class="mx-2" href="">Home</a>
+                <a class="mx-2 text-dark" href="">Home</a>
                 <a class="bg-primary px-4 py-2 text-white rounded" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                     href="">Blog</a>
             </ul>
@@ -78,18 +78,31 @@
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <!-- <div class="navbar-nav">
-                        
-                        <a class="nav-link" href="#"></a>
-                       
-                        
-                      </div> -->
+                      
                     </div>
                   </div>
                 </nav>
 
               </div>
+
+              <!-- news length -->
+              <div class="container mt-3 bg-light p-3">
+                  <h4 class="text-center text-info">Today Total <span id="total-length"></span> News</h4>
+              </div>
           </section>
+
+          <!-- spinner add -->
+          <section class="mt-5">
+              <div id="spinner" class="d-none">
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
+          </section>
+          <!-- spinner end -->
+
         <!-- topNav display end  -->
 
         <!-- display news start -->

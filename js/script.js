@@ -22,7 +22,11 @@ const displayMenuBar = cetagorys =>{
 };
 
 const loadCategoryDetails = (id)=>{
-    console.log(id)
+    // console.log(id)
+    // lodar start
+    const lodar = document.getElementById('spinner');
+
+    lodar.classList.remove('d-none')
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => displayCetagoryDetails(data.data))
@@ -30,8 +34,21 @@ const loadCategoryDetails = (id)=>{
 };
 
 const displayCetagoryDetails = details =>{
-    console.log(details);
+    // console.log(details);
+
+    // lodar end
+    const lodar = document.getElementById('spinner');
+    lodar.classList.add('d-none')
+
+    const inputLength = document.getElementById('total-length');
+    if(details.length > 0){
+        const totalLength = details.length;
+        inputLength.innerText = totalLength;
+    }
+    
+
     const displayNews = document.getElementById('display-news');
+    displayNews.textContent = '';
     for(const detail of details){
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3')
